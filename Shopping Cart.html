@@ -1,0 +1,772 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    *{
+        margin:0px;
+    }
+    body{
+        background-color:darkred;
+    }
+h1{
+    text-align: center;
+    background:linear-gradient(to right,red,yellow);
+    color:white;
+    font-style: italic;
+    text-decoration-line: underline;
+}
+#display-menu{
+    width:100%;
+}
+#display-container{
+    position:relative;
+}
+#display-menu > select{
+    width:100%;
+    background-color:orange;
+    font-size:20px;
+    padding-left:50%;
+    position:relative;
+}
+#display-images{
+    width:100%;
+    height:265px;
+    background-color:lime;
+    display: flex;
+    overflow: hidden;
+    z-index:2;
+}
+#previous,#next{
+    width:fit-content;
+    height:264px;
+}
+#previous > button , #next > button{
+    cursor:pointer;
+    border:1px solid black;
+    width:fit-content;
+    height:100%;
+}
+#img1-display,#img2-display,#img3-display,#img4-display{
+    background-color:red;
+    width:280px;
+    height:250px;
+    margin:10px;
+    display: flex;
+    position: relative;
+    border:1px solid black;
+    overflow: hidden;
+}
+#img1,#img3,#img5,#img7{
+    border:1px solid black;
+}
+#img2,#img4,#img6,#img8{
+    position:relative;
+    border:1px solid black
+    /* left:-282px; */
+}
+#img1-content,#img2-content,#img3-content,#img4-content{
+    position: relative;
+    border:1px solid black;
+    width:280px;
+    height:250px;
+    left:12px;
+    top:-8px;
+    background-color:coral;
+    /* top:-262px; */
+}
+
+#img1-content > ul ,#img2-content > ul,#img3-content > ul,#img4-content > ul{
+    list-style-type:none;
+    line-height: 50px;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bolder;
+    padding-top:30px;
+}
+#btn1,#btn2,#btn3,#btn4{
+    width:100%;
+    height:70px;
+    background:linear-gradient(to right,chocolate,orange);
+    color:darkblue;
+    font-weight: bolder;
+    font-size:25px;
+    cursor:pointer;
+    font-style: italic;
+}
+#next{
+    padding-left:26px;
+}
+#next > button{
+    width:66px;
+}
+table,th,td,tr{
+    border:5px solid black;
+    border-collapse: collapse;
+    padding:20px;
+    width:1200px;
+    background-color:red;
+    color:white;
+    font-size:30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+table{
+    margin-left:70px;
+    margin-top:20px;
+}
+#purchase{
+    position:relative;
+    top:30px;
+    left:48%;
+    display:none;
+}
+</style>
+<body onmouseover="func1(event)">
+    <div id="heading">
+        <h1 id="h1">
+            Shopping Cart
+        </h1>
+    </div>
+    <div id="display-container">
+        <div id="display-menu">
+            <select id="select">
+                <option disabled selected hidden>
+                    Select your Option
+                </option>
+                <option>
+                    Cups
+                </option>
+                <option>
+                    Jeans
+                </option>
+                <option>
+                    Shirts
+                </option>
+            </select>
+        </div>
+        <div id="display-images" onclick="func2(event)">
+            <div id="previous">
+                <button id="btn-prev">
+                    Previous
+                </button>
+            </div>
+            <div id="img1-container" >    
+                <div id="img1-display">
+                    <div id="image1">    
+                        <img src="no_image.png" width="280px" height="250px" id="img1">
+                    </div>
+                    <div id="image2">
+                        <img src="no_image.png" width="280px" height="250px" id="img2">
+                    </div>
+                </div>
+                <div id="img1-content">
+                    <ul>
+                        <li>
+                            Category = <span id="category1">None</span>
+                        </li>
+                        <li>
+                            Price = <span id="price1">None</span>
+                        </li>
+                        <li>
+                            Quantity = <span id="quantity1">None</span>
+                        </li>
+                    </ul>
+                    <button id="btn1">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div id="img2-container" onmouseover="func1(event)">    
+                <div id="img2-display">
+                    <div id="image3">    
+                        <img src="no_image.png" width="280px" height="250px" id="img3">
+                    </div>
+                    <div id="image4">
+                        <img src="no_image.png" width="280px" height="250px" id="img4">
+                    </div>
+                </div>
+                <div id="img2-content">
+                    <ul>
+                        <li>
+                            Category = <span id="category2">None</span>
+                        </li>
+                        <li>
+                            Price = <span id="price2">None</span>
+                        </li>
+                        <li>
+                            Quantity = <span id="quantity2">None</span>
+                        </li>
+                    </ul>
+                    <button id="btn2">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div id="img3-container">    
+                <div id="img3-display">
+                    <div id="image5">    
+                        <img src="no_image.png" width="280px" height="250px" id="img5">
+                    </div>
+                    <div id="image6">
+                        <img src="no_image.png" width="280px" height="250px" id="img6">
+                    </div>
+                </div>
+                <div id="img3-content">
+                    <ul>
+                        <li>
+                            Category = <span id="category3">None</span>
+                        </li>
+                        <li>
+                            Price = <span id="price3">None</span>
+                        </li>
+                        <li>
+                            Quantity = <span id="quantity3">None</span>
+                        </li>
+                    </ul>
+                    <button id="btn3">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div id="img4-container">    
+                <div id="img4-display">
+                    <div id="image7">    
+                        <img src="no_image.png" width="280px" height="250px" id="img7">
+                    </div>
+                    <div id="image8">
+                        <img src="no_image.png" width="280px" height="250px" id="img8">
+                    </div>
+                </div>
+                <div id="img4-content">
+                    <ul>
+                        <li>
+                            Category = <span id="category4">None</span>
+                        </li>
+                        <li>
+                            Price = <span id="price4">None</span>
+                        </li>
+                        <li>
+                            Quantity = <span id="quantity4">None</span>
+                        </li>
+                    </ul>
+                    <button id="btn4">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <div id="next">
+                <button id="btn-next">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+    <table onchange="func3(event)" onclick="func4(event)">
+        <tr>
+            <th>
+                Item Number
+            </th>
+            <th>
+                Item
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Remove
+            </th>
+        </tr>
+    </table>
+    <button id="purchase" onclick="Purchase()">
+        Purchase
+    </button>
+</body>
+<script>
+    let selected = 0;
+    var prev_clicked = true;
+    var next_clicked = false;
+    var cup_price = [700,2100,300,340,1200,1500,900,1800];
+    var cup_quantity = [12,3,41,5,9,4,9,1];
+    var shirt_price = [1000,200,300,150,960,600,580,990];
+    var shirt_quantity = [19,1,13,8,15,15,87,17]
+    var jeans_price = [2100,130,400,590,860,1750,180,110];
+    var jeans_quantity = [3,11,5,7,91,9,3,1]
+    document.getElementsByTagName("select")[0].addEventListener("change",function(){
+        if(this.value=="Cups"){
+            document.getElementById("img1").setAttribute("src","cup1.jpg");
+            document.getElementById("img2").setAttribute("src","cup2.jpg");
+            document.getElementById("img3").setAttribute("src","cup3.jpg");
+            document.getElementById("img4").setAttribute("src","cup4.jpg");
+            document.getElementById("img5").setAttribute("src","cup5.jpg");
+            document.getElementById("img6").setAttribute("src","cup6.jpg");
+            document.getElementById("img7").setAttribute("src","cup7.jpg");
+            document.getElementById("img8").setAttribute("src","cup8.jpg");
+            selected = 1;
+        }
+        else if(this.value=="Jeans"){
+            document.getElementById("img1").setAttribute("src","jean1.jpg");
+            document.getElementById("img2").setAttribute("src","jean2.jpg");
+            document.getElementById("img3").setAttribute("src","jean3.jpg");
+            document.getElementById("img4").setAttribute("src","jean4.jpg");
+            document.getElementById("img5").setAttribute("src","jean5.jpg");
+            document.getElementById("img6").setAttribute("src","jean6.jpg");
+            document.getElementById("img7").setAttribute("src","jean7.jpg");
+            document.getElementById("img8").setAttribute("src","jean8.jpg");
+            selected = 1;
+        }
+        else if(this.value=="Shirts"){
+            document.getElementById("img1").setAttribute("src","shirt1.jpg");
+            document.getElementById("img2").setAttribute("src","shirt2.jpg");
+            document.getElementById("img3").setAttribute("src","shirt3.jpg");
+            document.getElementById("img4").setAttribute("src","shirt4.jpg");
+            document.getElementById("img5").setAttribute("src","shirt5.jpg");
+            document.getElementById("img6").setAttribute("src","shirt6.jpg");
+            document.getElementById("img7").setAttribute("src","shirt7.jpg");
+            document.getElementById("img8").setAttribute("src","shirt8.jpg");
+            selected = 1;
+        }
+    });
+    document.getElementById("previous").addEventListener("click",function(){
+        if(prev_clicked==false){
+            document.getElementById("img2").style.left="0px";
+            document.getElementById("img4").style.left="0px";
+            document.getElementById("img6").style.left="0px";
+            document.getElementById("img8").style.left="0px";
+            prev_clicked=true;
+            next_clicked=false;
+        }
+    });
+    document.getElementById("next").addEventListener("click",function(){
+        if(next_clicked==false){    
+            prev_clicked=false;
+            next_clicked=true;
+            document.getElementById("img2").style.left="-282px";
+            document.getElementById("img4").style.left="-282px";
+            document.getElementById("img6").style.left="-282px";
+            document.getElementById("img8").style.left="-282px";
+        }
+    });
+    function func1(event){
+        if(event.target.id=="img1"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category1").innerText="Cups";
+                document.getElementById("price1").innerText=cup_price[0];
+                document.getElementById("quantity1").innerText=cup_quantity[0];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category1").innerText="Jeans";
+                document.getElementById("price1").innerText=jeans_price[0];
+                document.getElementById("quantity1").innerText=jeans_quantity[0];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category1").innerText="Shirts";
+                document.getElementById("price1").innerText=shirt_price[0];
+                document.getElementById("quantity1").innerText=shirt_quantity[0];
+            }
+            document.getElementById("img1-content").style.top="-262px";
+            document.getElementById("img1-content").style.transitionDuration="2s";
+            document.getElementById("img2-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img2"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category1").innerText="Cups";
+                document.getElementById("price1").innerText=cup_price[1];
+                document.getElementById("quantity1").innerText=cup_quantity[1];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category1").innerText="Jeans";
+                document.getElementById("price1").innerText=jeans_price[1];
+                document.getElementById("quantity1").innerText=jeans_quantity[1];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category1").innerText="Shirts";
+                document.getElementById("price1").innerText=shirt_price[1];
+                document.getElementById("quantity1").innerText=shirt_quantity[1];
+            }
+            document.getElementById("img1-content").style.top="-262px";
+            document.getElementById("img1-content").style.transitionDuration="2s";
+            document.getElementById("img2-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img3"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category2").innerText="Cups";
+                document.getElementById("price2").innerText=cup_price[2];
+                document.getElementById("quantity2").innerText=cup_quantity[2];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category2").innerText="Jeans";
+                document.getElementById("price2").innerText=jeans_price[2];
+                document.getElementById("quantity2").innerText=jeans_quantity[2];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category2").innerText="Shirts";
+                document.getElementById("price2").innerText=shirt_price[2];
+                document.getElementById("quantity2").innerText=shirt_quantity[2];
+            }
+            document.getElementById("img2-content").style.top="-262px";
+            document.getElementById("img2-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img4"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category2").innerText="Cups";
+                document.getElementById("price2").innerText=cup_price[3];
+                document.getElementById("quantity2").innerText=cup_quantity[3];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category2").innerText="Jeans";
+                document.getElementById("price2").innerText=jeans_price[3];
+                document.getElementById("quantity2").innerText=jeans_quantity[3];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category2").innerText="Shirts";
+                document.getElementById("price2").innerText=shirt_price[3];
+                document.getElementById("quantity2").innerText=shirt_quantity[3];
+            }
+            document.getElementById("img2-content").style.top="-262px";
+            document.getElementById("img2-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img5"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category3").innerText="Cups";
+                document.getElementById("price3").innerText=cup_price[4];
+                document.getElementById("quantity3").innerText=cup_quantity[4];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category3").innerText="Jeans";
+                document.getElementById("price3").innerText=jeans_price[4];
+                document.getElementById("quantity3").innerText=jeans_quantity[4];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category3").innerText="Shirts";
+                document.getElementById("price3").innerText=shirt_price[4];
+                document.getElementById("quantity3").innerText=shirt_quantity[4];
+            }
+            document.getElementById("img3-content").style.top="-262px";
+            document.getElementById("img3-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img2-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img6"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category3").innerText="Cups";
+                document.getElementById("price3").innerText=cup_price[5];
+                document.getElementById("quantity3").innerText=cup_quantity[5];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category3").innerText="Jeans";
+                document.getElementById("price3").innerText=jeans_price[5];
+                document.getElementById("quantity3").innerText=jeans_quantity[5];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category3").innerText="Shirts";
+                document.getElementById("price3").innerText=shirt_price[5];
+                document.getElementById("quantity3").innerText=shirt_quantity[5];
+            }
+            document.getElementById("img3-content").style.top="-262px";
+            document.getElementById("img3-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img2-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+        else if(event.target.id=="img7"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category4").innerText="Cups";
+                document.getElementById("price4").innerText=cup_price[6];
+                document.getElementById("quantity4").innerText=cup_quantity[6];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category4").innerText="Jeans";
+                document.getElementById("price4").innerText=jeans_price[6];
+                document.getElementById("quantity4").innerText=jeans_quantity[6];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category4").innerText="Shirts";
+                document.getElementById("price4").innerText=shirt_price[6];
+                document.getElementById("quantity4").innerText=shirt_quantity[6];
+            }
+            document.getElementById("img4-content").style.top="-262px";
+            document.getElementById("img4-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img2-content").style.top="0px";
+        }
+        else if(event.target.id=="img8"){
+            if(document.getElementById("select").value=="Cups"){
+                document.getElementById("category4").innerText="Cups";
+                document.getElementById("price4").innerText=cup_price[7];
+                document.getElementById("quantity4").innerText=cup_quantity[7];   
+            }
+            else if(document.getElementById("select").value=="Jeans"){
+                document.getElementById("category4").innerText="Jeans";
+                document.getElementById("price4").innerText=jeans_price[7];
+                document.getElementById("quantity4").innerText=jeans_quantity[7];   
+            }
+            else if(document.getElementById("select").value=="Shirts"){
+                document.getElementById("category4").innerText="Shirts";
+                document.getElementById("price4").innerText=shirt_price[7];
+                document.getElementById("quantity4").innerText=shirt_quantity[7];
+            }
+            document.getElementById("img4-content").style.top="-262px";
+            document.getElementById("img4-content").style.transitionDuration="2s";
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img2-content").style.top="0px";
+        }
+         else if(event.target.id=="btn-next" || event.target.id=="btn-prev" || event.target.id=="img4-container" || event.target.id=="img3-container" || event.target.id=="img2-container" || event.target.id=="img1-container" || event.target.tagName=="BODY" || event.target.id=="h1" || event.target.id=="select" || event.target.tagName=="TABLE" || event.target.tagName=="TH" || event.target.tagName=="TD" || event.target.tagName=="TR"){
+            document.getElementById("img1-content").style.top="0px";
+            document.getElementById("img3-content").style.top="0px";
+            document.getElementById("img2-content").style.top="0px";
+            document.getElementById("img4-content").style.top="0px";
+        }
+    }
+    function func2(event){
+      if(selected==1){  
+        if(event.target.id=="btn1"){
+            let x = document.getElementById("img2").getAttribute("style");
+            let image=""
+            if(x==null || x=="left: 0px;"){
+                image = document.getElementById("img1").getAttribute("src");
+            }
+            else{
+                image = document.getElementById("img2").getAttribute("src");
+            }
+            let tb = document.getElementsByTagName("table")[0];
+            
+            let TR = document.createElement("tr");
+            let TD_1 = document.createElement("td");
+            TD_1.innerText = tb.rows.length;
+
+            let TD_2 = document.createElement("td");
+            let Image = document.createElement("img")
+            Image.setAttribute("src",image);
+            Image.setAttribute("width","50px")
+            TD_2.appendChild(Image);
+            
+            let TD_3 = document.createElement("td");
+            let Input = document.createElement("input");
+            Input.setAttribute("type","number");
+            Input.setAttribute("min","1");
+            Input.setAttribute("max",document.getElementById("quantity1").innerHTML);
+            Input.setAttribute("value","1");
+            Input.setAttribute("style","width:120px")
+            Input.setAttribute("id",document.getElementById("price1").innerHTML)
+            TD_3.appendChild(Input);
+
+            let TD_4 = document.createElement("td");
+            TD_4.innerHTML = document.getElementById("price1").innerHTML;
+
+            let TD_5 = document.createElement("td");
+            let Icon = document.createElement("i");
+            Icon.setAttribute("class","fa fa-remove");
+            Icon.setAttribute("style","cursor:pointer");
+            TD_5.appendChild(Icon);
+
+            TR.appendChild(TD_1);
+            TR.appendChild(TD_2);
+            TR.appendChild(TD_3);
+            TR.appendChild(TD_4);
+            TR.appendChild(TD_5);
+            tb.appendChild(TR);
+        }
+        else if(event.target.id=="btn2"){
+            let x = document.getElementById("img4").getAttribute("style");
+            let image=""
+            if(x==null || x=="left: 0px;"){
+                image = document.getElementById("img3").getAttribute("src");
+            }
+            else{
+                image = document.getElementById("img4").getAttribute("src");
+            }
+            let tb = document.getElementsByTagName("table")[0];
+            
+            let TR = document.createElement("tr");
+            let TD_1 = document.createElement("td");
+            TD_1.innerText = tb.rows.length;
+
+            let TD_2 = document.createElement("td");
+            let Image = document.createElement("img")
+            Image.setAttribute("src",image);
+            Image.setAttribute("width","50px")
+            TD_2.appendChild(Image);
+            
+            let TD_3 = document.createElement("td");
+            let Input = document.createElement("input");
+            Input.setAttribute("type","number");
+            Input.setAttribute("min","1");
+            Input.setAttribute("max",document.getElementById("quantity2").innerHTML);
+            Input.setAttribute("value","1");
+            Input.setAttribute("style","width:120px")
+            Input.setAttribute("id",document.getElementById("price2").innerHTML)
+            TD_3.appendChild(Input);
+
+            let TD_4 = document.createElement("td");
+            TD_4.innerHTML = document.getElementById("price2").innerHTML;
+
+            let TD_5 = document.createElement("td");
+            let Icon = document.createElement("i");
+            Icon.setAttribute("class","fa fa-remove");
+            Icon.setAttribute("style","cursor:pointer");
+            TD_5.appendChild(Icon);
+
+            TR.appendChild(TD_1);
+            TR.appendChild(TD_2);
+            TR.appendChild(TD_3);
+            TR.appendChild(TD_4);
+            TR.appendChild(TD_5);
+            tb.appendChild(TR);
+        }
+        else if(event.target.id=="btn3"){
+            let x = document.getElementById("img6").getAttribute("style");
+            let image=""
+            if(x==null || x=="left: 0px;"){
+                image = document.getElementById("img5").getAttribute("src");
+            }
+            else{
+                image = document.getElementById("img6").getAttribute("src");
+            }
+            let tb = document.getElementsByTagName("table")[0];
+            
+            let TR = document.createElement("tr");
+            let TD_1 = document.createElement("td");
+            TD_1.innerText = tb.rows.length;
+
+            let TD_2 = document.createElement("td");
+            let Image = document.createElement("img")
+            Image.setAttribute("src",image);
+            Image.setAttribute("width","50px")
+            TD_2.appendChild(Image);
+            
+            let TD_3 = document.createElement("td");
+            let Input = document.createElement("input");
+            Input.setAttribute("type","number");
+            Input.setAttribute("min","1");
+            Input.setAttribute("max",document.getElementById("quantity3").innerHTML);
+            Input.setAttribute("value","1");
+            Input.setAttribute("style","width:120px")
+            Input.setAttribute("id",document.getElementById("price3").innerHTML)
+            TD_3.appendChild(Input);
+
+            let TD_4 = document.createElement("td");
+            TD_4.innerHTML = document.getElementById("price3").innerHTML;
+
+            let TD_5 = document.createElement("td");
+            let Icon = document.createElement("i");
+            Icon.setAttribute("class","fa fa-remove");
+            Icon.setAttribute("style","cursor:pointer");
+            TD_5.appendChild(Icon);
+
+            TR.appendChild(TD_1);
+            TR.appendChild(TD_2);
+            TR.appendChild(TD_3);
+            TR.appendChild(TD_4);
+            TR.appendChild(TD_5);
+            tb.appendChild(TR);
+        }
+        else if(event.target.id=="btn4"){
+            let x = document.getElementById("img8").getAttribute("style");
+            let image=""
+            if(x==null || x=="left: 0px;"){
+                image = document.getElementById("img7").getAttribute("src");
+            }
+            else{
+                image = document.getElementById("img8").getAttribute("src");
+            }
+            let tb = document.getElementsByTagName("table")[0];
+            
+            let TR = document.createElement("tr");
+            let TD_1 = document.createElement("td");
+            TD_1.innerText = tb.rows.length;
+
+            let TD_2 = document.createElement("td");
+            let Image = document.createElement("img")
+            Image.setAttribute("src",image);
+            Image.setAttribute("width","50px")
+            TD_2.appendChild(Image);
+            
+            let TD_3 = document.createElement("td");
+            let Input = document.createElement("input");
+            Input.setAttribute("type","number");
+            Input.setAttribute("min","1");
+            Input.setAttribute("max",document.getElementById("quantity4").innerHTML);
+            Input.setAttribute("value","1");
+            Input.setAttribute("style","width:120px")
+            Input.setAttribute("id",document.getElementById("price4").innerHTML)
+            TD_3.appendChild(Input);
+
+            let TD_4 = document.createElement("td");
+            TD_4.innerHTML = document.getElementById("price4").innerHTML;
+
+            let TD_5 = document.createElement("td");
+            let Icon = document.createElement("i");
+            Icon.setAttribute("class","fa fa-remove");
+            Icon.setAttribute("style","cursor:pointer");
+            TD_5.appendChild(Icon);
+
+            TR.appendChild(TD_1);
+            TR.appendChild(TD_2);
+            TR.appendChild(TD_3);
+            TR.appendChild(TD_4);
+            TR.appendChild(TD_5);
+            tb.appendChild(TR);
+        }
+        if(document.getElementsByTagName("table")[0].rows.length==1){
+                document.getElementById("purchase").style.display="none";
+            }
+            else{
+                document.getElementById("purchase").style.display="block";
+            }
+    }
+}
+    function func3(event){
+        if(event.target.tagName=="INPUT"){
+            let new_value = parseInt(event.target.value);
+            let num = parseInt(event.target.id);
+            let x = event.target.parentElement.nextSibling;
+            x.innerHTML = new_value*num; 
+        }
+    }
+    function func4(event){
+        if(event.target.tagName=="I"){
+            let x = event.target.parentElement.parentElement;
+            x.remove();
+            let tb = document.getElementsByTagName("table")[0].rows.length;
+            for(let i=1;i<tb;i++){
+                document.getElementsByTagName("tr")[i].firstElementChild.innerHTML = i;
+            }
+            if(document.getElementsByTagName("table")[0].rows.length==1){
+                document.getElementById("purchase").style.display="none";
+            }
+            else{
+                document.getElementById("purchase").style.display="block";
+            }
+        }
+    }
+    function Purchase(){
+        let tb_length = document.getElementsByTagName("table")[0].rows.length;
+        let amount=0
+        if(tb_length>1){    
+            for(let i=1;i<tb_length;i++){
+                amount+=parseInt(document.getElementsByTagName("tr")[i].children[3].innerHTML);
+            }
+            alert("Total Amount = "+amount);
+            let tb_rows = document.getElementsByTagName("table")[0].rows;
+            while(tb_rows.length>1){    
+                document.getElementsByTagName("tr")[(tb_rows.length)-1].remove();
+            }
+            document.getElementById("purchase").style.display="none";
+        }
+    }
+</script>
